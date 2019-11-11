@@ -1,5 +1,5 @@
 # ciscobackup
-Ansible ciscobackup simple and fun!
+Ansible ciscobackup simple and fun which will fetch running-config !
 
 Don't forget to install sshpass and if you got problem using ssh to cisco device due to Cipher please add :
 
