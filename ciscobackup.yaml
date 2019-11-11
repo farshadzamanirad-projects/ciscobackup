@@ -1,0 +1,19 @@
+---
+- name: Save Configurations (IOS)
+  hosts: cisco
+  vars:
+    creds:
+      host: "{{ host }}"
+      username: "{{ username }}"
+      password: "{{ password }}"
+  tasks:
+    - ios_command:
+        provider: "{{ creds }}"
+        commands: show run
+      register: show_run
+
+    - debug:
+        msg: "{{ show_run }}"
+    - copy:
+        content: "{{ show_run.stdout[0] }}"
+        dest: "backup/{{ inventory_hostname }}.txt"
